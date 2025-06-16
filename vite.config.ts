@@ -4,15 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {
-    proxy: {
-      "/api/deepl": {
-        target: "https://api-free.deepl.com",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/deepl/, ""),
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/api/deepl": {
+  //       target: "",
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api\/deepl/, ""),
+  //     },
+  //   },
+  // },
   build: {
     sourcemap: false, // Disable sourcemaps for production
     minify: "esbuild", // Minify to reduce bundle size

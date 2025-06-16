@@ -34,17 +34,20 @@ export const useTranslate = () => {
       setResult((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {
-        const response = await fetch("/api/deepl/v2/translate", {
-          method: "POST",
-          headers: {
-            Authorization: `DeepL-Auth-Key ${authKey}`,
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            text,
-            target_lang: targetLang.toUpperCase(),
-          }),
-        });
+        const response = await fetch(
+          "https://api-free.deepl.com/api/deepl/v2/translate",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `DeepL-Auth-Key ${authKey}`,
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              text,
+              target_lang: targetLang.toUpperCase(),
+            }),
+          }
+        );
 
         const data = await response.json();
 
