@@ -13,4 +13,8 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    sourcemap: false, // Disable sourcemaps for production
+    minify: "esbuild", // Minify to reduce bundle size
+  },
 });
